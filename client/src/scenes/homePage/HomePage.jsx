@@ -5,6 +5,8 @@ import Navbar from "scenes/navbar/Navbar";
 import UserWidget from "scenes/widgets/UserWidget";
 import MyPostWidget from "scenes/widgets/MyPostWidget";
 import PostsWidget from "scenes/widgets/PostsWidget";
+import AdvertWidget from "scenes/widgets/AdvertWidget";
+import FriendsListWidget from "scenes/widgets/FriendsListWidget";
 
 const HomePage = () => {
   const isNonMobileScreen = useMediaQuery("(min-width:1000px)");
@@ -21,18 +23,21 @@ const HomePage = () => {
         justifyContent="space-between"
       >
         <Box flexBasis={isNonMobileScreen ? "26%" : undefined}>
-          <UserWidget userId={_id} picturePath={picturePath}/>
+          <UserWidget userId={_id} picturePath={picturePath} />
         </Box>
 
-        <Box flexBasis={isNonMobileScreen ? "42%" : undefined}
-        mt={isNonMobileScreen ? undefined : "2rem"}
+        <Box
+          flexBasis={isNonMobileScreen ? "42%" : undefined}
+          mt={isNonMobileScreen ? undefined : "2rem"}
         >
           <MyPostWidget picturePath={picturePath} />
           <PostsWidget userId={_id} />
         </Box>
         {isNonMobileScreen && (
           <Box flexBasis="26%">
-
+            <AdvertWidget />
+            <Box m="2rem 0" />
+            <FriendsListWidget userId={_id}/>
           </Box>
         )}
       </Box>

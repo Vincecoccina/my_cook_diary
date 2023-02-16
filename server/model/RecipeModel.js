@@ -14,8 +14,14 @@ const RecipeSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    title:{
+      type: String,
+    },
+    description:{
+      type: String,
+      required: true
+    },
     location: String,
-    description: String,
     picturePath: String,
     userPicturePath: String,
     likes: {
